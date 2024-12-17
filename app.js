@@ -23,13 +23,13 @@ function buttonFlash(btn) {
 }
 
 function levelUp() {
-    userSeq=[];//
+    userSeq=[];
     level++;
     h2.innerText = `Level ${level}`;
     let randIdx = Math.floor(Math.random() * 4);
     let randCol = color[randIdx];
-    let randBtn = document.querySelector(`.${randCol}`);//
-    gameSeq.push(randCol);  //RandBtn pushed instead of randCol
+    let randBtn = document.querySelector(`.${randCol}`);
+    gameSeq.push(randCol); 
 
     buttonFlash(randBtn);
 }
@@ -44,7 +44,7 @@ function userFlash(btn) {
 function checkSeq(idx) {
     if (userSeq[idx] === gameSeq[idx]) {
         if (userSeq.length == gameSeq.length) {
-            setTimeout(levelUp, 500);//
+            setTimeout(levelUp, 500);
         }
     } else {
         h2.innerText = `Game Over your score is ${level}.Press any key to Start`;
@@ -57,7 +57,7 @@ function btnPress() {
     userFlash(btn);
     userCol = btn.getAttribute("id");
     userSeq.push(userCol);
-    checkSeq(userSeq.length - 1);//
+    checkSeq(userSeq.length - 1);
 }
 
 let btns = document.querySelectorAll(".btn");
